@@ -47,7 +47,18 @@ function completeOrder(orderId: number) {
     return order
 }
 
-
+// used unions in the Identify type
+type Idetify = string | number 
+function getPizzaDetail(identifier: Idetify){
+//  checking to see if the parameter is a string or number by using menu.find()
+    if(typeof identifier === 'string'){
+        return menu.find(pizza => pizza.name.toLowerCase() === identifier.toLowerCase())
+    } else{
+        return menu.find(pizza => pizza.id === identifier)
+    }
+    
+    
+}
 
 
 addNewPizza({ id: 5, name: "Chicken Bacon Ranch", price: 12 })
