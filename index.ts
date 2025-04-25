@@ -25,7 +25,9 @@ function addNewPizza(pizzaObj: Pizza) {
     menu.push(pizzaObj)
 }
 
-function placeOrder(pizzaName: string) {
+// adding return types to our funtions
+//
+function placeOrder(pizzaName: string): Order |undefined {
     const selectedPizza = menu.find(pizzaObj => pizzaObj.name === pizzaName)
     if (!selectedPizza) {
         console.error(`${pizzaName} does not exist in the menu`)
@@ -37,7 +39,7 @@ function placeOrder(pizzaName: string) {
     return newOrder
 }
 
-function completeOrder(orderId: number) {
+function completeOrder(orderId: number): Order | undefined {
     const order = orderQueue.find(order => order.id === orderId)
     if (!order) {
         console.error(`${orderId} was not found in the orderQueue`)
